@@ -19,4 +19,11 @@ RSpec.describe Deck do
 
         expect(deck.cards).to eq(cards)
     end
+
+    it "can read specific cards" do 
+        deck = Deck.new(cards)
+
+        expect(deck.rank_of_card_at(0)).to eq(12)
+        expect(deck.rank_of_card_at(2)).to eq(14)
+    end
 end
