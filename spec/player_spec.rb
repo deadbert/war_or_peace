@@ -9,11 +9,22 @@ RSpec.describe Player do
     card3 = Card.new(:heart, 'Ace', 14)
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
+    player = Player.new("Nick", deck)
 
     it "exists with a name and a deck" do
-        player = Player.new("Nick", deck)
         
         expect(player.name).to eq("Nick")
         expect(player.deck).to eq(deck)
+    end
+
+    it "Knows when it's lost" do
+        expect(player.has_lost?).to eq(false)
+        player.deck.remove_card
+        expect(player.has_lost?).to eq(false)
+        player.deck.remove_card
+        expect(player.has_lost?).to eq(false)
+        player.deck.remove_card
+        expect(player.has_lost?).to eq(true)
+        p player.deck
     end
 end
