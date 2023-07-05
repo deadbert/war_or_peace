@@ -12,7 +12,6 @@ RSpec.describe Player do
     player = Player.new("Nick", deck)
 
     it "exists with a name and a deck" do
-        
         expect(player.name).to eq("Nick")
         expect(player.deck).to eq(deck)
     end
