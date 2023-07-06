@@ -44,5 +44,16 @@ class Turn
         spoils_of_war.each do |card|
             @winner.deck.add_card(card)
         end
+        spoils_of_war.clear
+    end
+
+    def print_winner
+        if @type == :basic
+            "#{@winner.name} won 2cards"
+        elsif @type == :war
+            "War  - #{@winner.name} won 6 cards"
+        else
+            "mutually assured destruction* 6 cards removed from play"
+        end
     end
 end
